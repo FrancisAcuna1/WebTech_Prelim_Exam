@@ -70,7 +70,7 @@ const comments = () => {
                                 </CardActionArea>
                                 <CardActionArea>
                                     <CardContent>
-                                        <Typography variant="body1" color="text.dark" sx={{ fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '5px' }}>
+                                        <Typography variant="body1" color="text.dark" sx={{marginLeft: '15px', fontSize: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '5px' }}>
                                             {item.body}
                                         </Typography>
                                     </CardContent>

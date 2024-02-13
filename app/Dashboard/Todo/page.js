@@ -49,8 +49,8 @@ const Todo = () => {
                                     <CardContent>
                                             <Typography variant="body1" color="primary" fontSize={"15px"}>{`Todo ID: ${todos.id}`} </Typography>
                                             <Typography variant="h5" fontWeight={"bold"}>{user.name}</Typography>
-                                            <Typography variant="body1" fontSize={"20px"}>{`Title: ${todos.title}`} </Typography>
-                                            <Typography variant="body1">{`Task Status: ${todos.completed}`} </Typography>
+                                            <Typography variant="body1" fontSize={"20px"} color="text.dark" sx={{ fontSize: 16, display: 'flex', alignItems: 'start', justifyContent: 'start', marginTop: '5px' }}>{`Title: ${todos.title}`} </Typography>
+                                            <Typography variant="body1" color="text.dark" sx={{ fontSize: 16, display: 'flex', alignItems: 'start', justifyContent: 'start', marginTop: '5px' }}>{`Task Status: ${todos.completed}`} </Typography>
                                       
                                     </CardContent>
                                 </CardActionArea>
