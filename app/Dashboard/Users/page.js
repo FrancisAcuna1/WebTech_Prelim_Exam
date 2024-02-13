@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useEffect } from "react";
 import Navbar from "../navbar";
 import { CardActionArea, CardContent, CardHeader, Grid, Card, Typography, ListItemIcon, Button, IconButton, Skeleton } from "@mui/material";
