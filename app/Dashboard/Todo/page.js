@@ -31,7 +31,7 @@ const Todo = () => {
                 });
         }
         fetchUsers();
-    }, [])
+    }, [userId])
 
 
 

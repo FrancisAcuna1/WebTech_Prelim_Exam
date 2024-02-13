@@ -1,10 +1,9 @@
 "use client"
-import React, { useSyncExternalStore } from "react";
+import React from "react";
 import Navbar from "../navbar";
 import { useState, useEffect } from "react";
 import { CardActionArea, CardContent, CardHeader, Grid, Card, Typography, Avatar, ListItemIcon, Button, IconButton, Skeleton} from "@mui/material";
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 
 const User = () => {

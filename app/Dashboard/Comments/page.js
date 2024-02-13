@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 
-const comments = () => {
+const Comments = () => {
     const [user, setUser] = useState([]);
     const [comment, setComment] = useState([]);
     const search = useSearchParams();
@@ -38,7 +38,7 @@ const comments = () => {
                 });
         }
         fetchUsers();
-    }, []);
+    }, [postId]);
     return ( <>
         <Navbar/>
         <Button variant="contained" color="success" href="/Dashboard" sx={{marginTop:'100px', marginLeft: '40px'}}>Back</Button>
@@ -85,4 +85,4 @@ const comments = () => {
     </> );
 }
  
-export default comments;
+export default Comments;
