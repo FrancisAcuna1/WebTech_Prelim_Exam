@@ -73,7 +73,7 @@ const User = () => {
                                     </ListItemIcon>
                                             
                                     <CardContent>   
-                                    <Typography variant="body2">
+                                    <Typography variant="body2" color="text.dark" sx={{ fontSize: 16, display: 'flex', alignItems: 'start', justifyContent: 'start', marginTop: '5px' }}>
                                             {`Email: ${users.email}`}
                                             <br/>
                                             {`Address: ${users.address.street} ${users.address.suite}, ${users.address.city}`}
@@ -83,7 +83,7 @@ const User = () => {
                                     </CardContent>
 
                                     <CardContent>   
-                                    <Typography variant="body1" gutterBottom>
+                                    <Typography variant="body1" gutterBottom color="text.dark" sx={{ fontSize: 16, display: 'flex', alignItems: 'start', justifyContent: 'start', marginTop: '5px' }}>
                                             {`Phone no.:  ${users.phone}`}
                                             <br/>
                                             {`Website: ${users.website}`}
