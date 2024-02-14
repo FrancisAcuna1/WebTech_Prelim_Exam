@@ -14,13 +14,7 @@ import Chart from 'react-apexcharts';
 const Home = () => {
     const [loading, setLoading] = useState(true)
     const [posts, setPosts] = useState([]);
-    const [user, setUser] = useState([{
-        id: null,
-        name: null,
-        email: null,
-        body: null
-    
-    }]);
+    const [user, setUser] = useState([]);
     const [comment, setComment] = useState ([]);
     const [todo, setTodo] = useState([]);
 

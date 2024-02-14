@@ -1,11 +1,14 @@
 "use client"
 import React, { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation';
 import Navbar from "../navbar";
 import { CardActionArea, CardContent, CardHeader, Grid, Card, Typography, ListItemIcon, Button, IconButton, Skeleton } from "@mui/material";
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+
+
 
 const User = () => {
+    const router = useRouter();
     const [user, setUser] = useState([{
         id: null,
         name: null,
@@ -53,7 +56,7 @@ const User = () => {
                             <Card sx={{ maxWidth: 340, justifyContent: "center", alignItems: "center", borderRadius: 4 }} elevation={4}>
                                 <CardActionArea>
                                     {loading ? (
-                                        <Skeleton animation="wave" height={30} width="80%" />
+                                        <Skeleton animation="wave" height={40} width="80%" marginLeft="10px"/>
                                     ) : (
                                         <>
                                             <ListItemIcon
@@ -88,7 +91,9 @@ const User = () => {
                                                     <br />
                                                     Company Name: {users.company.name}
                                                 </Typography>
-                                                <Button variant="outlined" href={`/Dashboard/Todo?userId=${users.id}`} gutterBottom sx={{ marginTop: '20px' }}>{`View User's Todo's`}</Button>
+                                            {/* <Button variant="outlined" href={`/Dashboard/Todo?userId=${router.query.userId}`} gutterBottom sx={{ marginTop: '20px' }}>{`View User's Todo's`}</Button>  */}
+                                            <Button variant="outlined" onClick={() => router.push(`/Dashboard/Todo?userId=${users.id}`)} sx={{ marginTop: '20px' }}>View Comment</Button>
+
                                             </CardContent>
 
                                         </>

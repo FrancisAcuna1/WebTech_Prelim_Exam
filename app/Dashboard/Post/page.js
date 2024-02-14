@@ -1,14 +1,14 @@
 "use client"
-import React, { useState, useEffect, useId } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation';
 import Navbar from "../navbar";
-import { Card, CardActionArea, CardContent, Grid, Modal, Skeleton, Box, CardHeader, Typography, Avatar, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useTheme, useMediaQuery, styled, IconButton, ListItemIcon } from "@mui/material";
-import { red } from '@mui/material/colors';
+import { Card, CardActionArea, CardContent, Grid, Skeleton, Typography,  Button, IconButton, ListItemIcon } from "@mui/material";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import CloseIcon from '@mui/icons-material/Close';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 
 const Post = () => {
+    const router = useRouter();
     const [users, setUsers] = useState([]);
     const [posts, setPosts] = useState([{
         id: null,
@@ -111,7 +111,10 @@ const Post = () => {
                                         <Typography variant="body1" color="text.dark" sx={{ fontSize: 16, display: 'flex', alignItems: 'start', justifyContent: 'start', marginTop: '5px' }}>
                                             {item.body}
                                         </Typography>
-                                        <Button variant="outlined" href={"/Dashboard/Comments?postId="+item.id}sx={{marginTop:'20px'}}>View Comment</Button>
+                                        {/* <Button variant="outlined" href={"/Dashboard/Comments?postId="+item.id}sx={{marginTop:'20px'}}>View Comment</Button> */}
+                                        <Button variant="outlined" onClick={() => router.push(`/Dashboard/Comments?postId=${item.id}`)} sx={{ marginTop: '20px' }}>View Comment</Button>
+                                       
+
                                     </>
                                     )
                                     }
