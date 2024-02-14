@@ -88,7 +88,7 @@ const User = () => {
                                                     <br />
                                                     Company Name: {users.company.name}
                                                 </Typography>
-                                                <Button variant="outlined" href={`/Dashboard/Todo?userId=${users.id}`} gutterBottom sx={{ marginTop: '20px' }}>View User's Todo's</Button>
+                                                <Button variant="outlined" href={`/Dashboard/Todo?userId=${users.id}`} gutterBottom sx={{ marginTop: '20px' }}>{`View User's Todo's`}</Button>
                                             </CardContent>
 
                                         </>
