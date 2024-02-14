@@ -19,6 +19,16 @@ const Home = () => {
     const [todo, setTodo] = useState([]);
 
     useEffect(() => {
+        const fetchTodo = () => {
+            setLoading(true);
+            fetch('https://jsonplaceholder.typicode.com/todos')
+            .then(response => response.json())
+            .then(json => {
+                setTodo(json);
+                setLoading(false);
+            });
+        }
+
         const fetchPosts = () => {
             setLoading(true);
             fetch('https://jsonplaceholder.typicode.com/posts')
@@ -29,12 +39,7 @@ const Home = () => {
                 });
                 
         };
-        fetchPosts();
 
-        
-    }, []);
-
-    useEffect(() => {
         const fetchUsers = () => {
             setLoading(true);
             fetch('https://jsonplaceholder.typicode.com/users')
@@ -44,10 +49,7 @@ const Home = () => {
                 setLoading(false);
             });
         }
-        fetchUsers();
-    },[])
 
-    useEffect(() => {
         const fetchComments = () => {
             setLoading(true);
             fetch('https://jsonplaceholder.typicode.com/comments')
@@ -57,21 +59,16 @@ const Home = () => {
                 setLoading(false);
             });
         }
-        fetchComments();
-    },[])
-
-    useEffect(() => {
-        const fetchTodo = () => {
-            setLoading(true);
-            fetch('https://jsonplaceholder.typicode.com/todos')
-            .then(response => response.json())
-            .then(json => {
-                setTodo(json);
-                setLoading(false);
-            });
-        }
+        fetchPosts();
+        fetchComments()
+        fetchUsers();
         fetchTodo();
-    },[])
+    }, []);
+
+  
+  
+
+    
 
     const todoCountPerUser = {};
     todo.forEach((task) => {

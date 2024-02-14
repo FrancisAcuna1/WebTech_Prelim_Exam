@@ -1,8 +1,7 @@
 "use client"
 
 import Navbar from "../navbar";
-import { Card, CardActionArea, CardContent, Grid, Modal, Box, CardHeader, Typography, Avatar, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useTheme, useMediaQuery, styled, IconButton, ListItemIcon, Skeleton } from "@mui/material";
-import { red } from '@mui/material/colors';
+import { Card, CardActionArea, CardContent, Grid, Typography, Button,} from "@mui/material";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 import { useState, useEffect } from "react";
@@ -15,20 +14,24 @@ const Todo = () => {
 
     useEffect(() => {
         const fetchUserTodo = () => {
-            fetch('https://jsonplaceholder.typicode.com/users/'+userId+'/todos')
+
+            fetch(`https://jsonplaceholder.typicode.com/users/${userId}/todos`)
                 .then(response => response.json())
                 .then(json => {
                     setTodo(json);
                 });
+            
         }
         fetchUserTodo()
 
         const fetchUsers = () => {
-            fetch('https://jsonplaceholder.typicode.com/users/'+userId)
+
+            fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
                 .then(response => response.json())
                 .then(json => {
                     setUser(json);
-                });
+            });
+
         }
         fetchUsers();
     }, [userId])
@@ -48,7 +51,11 @@ const Todo = () => {
                                 <CardActionArea >                            
                                     <CardContent>
                                             <Typography variant="body1" color="primary" fontSize={"15px"}>{`Todo ID: ${todos.id}`} </Typography>
-                                            <Typography variant="h5" fontWeight={"bold"}>{user.name}</Typography>
+                                            {user && (
+                                                <Typography variant="h5" fontWeight={"bold"}>
+                                                    {user.name}
+                                                </Typography>
+                                            )}
                                             <Typography variant="body1" fontSize={"20px"} color="text.dark" sx={{ fontSize: 16, display: 'flex', alignItems: 'start', justifyContent: 'start', marginTop: '5px' }}>{`Title: ${todos.title}`} </Typography>
                                             <Typography variant="body1" color="text.dark" sx={{ fontSize: 16, display: 'flex', alignItems: 'start', justifyContent: 'start', marginTop: '5px' }}>{`Task Status: ${todos.completed}`} </Typography>
                                       

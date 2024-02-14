@@ -92,7 +92,7 @@ const User = () => {
                                                     Company Name: {users.company.name}
                                                 </Typography>
                                             {/* <Button variant="outlined" href={`/Dashboard/Todo?userId=${router.query.userId}`} gutterBottom sx={{ marginTop: '20px' }}>{`View User's Todo's`}</Button>  */}
-                                            <Button variant="outlined" onClick={() => router.push(`/Dashboard/Todo?userId=${users.id}`)} sx={{ marginTop: '20px' }}>View Comment</Button>
+                                            <Button variant="outlined" onClick={() => router.push(`./Dashboard/Todo?userId=${users.id}`)} sx={{ marginTop: '20px' }}>View Comment</Button>
 
                                             </CardContent>
 

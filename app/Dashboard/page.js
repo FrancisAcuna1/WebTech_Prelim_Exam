@@ -220,10 +220,6 @@ export default function Dashboard() {
                     <h1 style={{marginTop: -25}}>Users</h1>
                     <User/>
                 </TabPanel>
-                <TabPanel value="3">           
-                    <h1 style={{marginTop: -25}}>Users</h1>
-                    <Comment/>
-                </TabPanel>
             </TabContext>
         </Box>
     </Box>

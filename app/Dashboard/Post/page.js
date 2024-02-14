@@ -112,7 +112,7 @@ const Post = () => {
                                             {item.body}
                                         </Typography>
                                         {/* <Button variant="outlined" href={"/Dashboard/Comments?postId="+item.id}sx={{marginTop:'20px'}}>View Comment</Button> */}
-                                        <Button variant="outlined" onClick={() => router.push(`/Dashboard/Comments?postId=${item.id}`)} sx={{ marginTop: '20px' }}>View Comment</Button>
+                                        <Button variant="outlined" onClick={() => router.push(`./Dashboard/Comments?postId=${item.id}`)} sx={{ marginTop: '20px' }}>View Comment</Button>
                                        
 
                                     </>

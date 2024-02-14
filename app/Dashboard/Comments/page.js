@@ -19,7 +19,7 @@ const Comments = () => {
     useEffect(() => {
         const fetchCommnet = () => {
             setLoading(true);
-            fetch('https://jsonplaceholder.typicode.com/posts/'+postId+'/comments')
+            fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
                 .then(response => response.json())
                 .then(json => {
                     setLoading(false);
@@ -30,7 +30,7 @@ const Comments = () => {
 
         const fetchUsers = () => {
             setLoading(true);
-            fetch('https://jsonplaceholder.typicode.com/posts/'+postId)
+            fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
                 .then(response => response.json())
                 .then(json => {
                     setLoading(false);
