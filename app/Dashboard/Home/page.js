@@ -10,6 +10,7 @@ import Chart from 'react-apexcharts';
 
 
 
+
 const Home = () => {
     const [loading, setLoading] = useState(true)
     const [posts, setPosts] = useState([]);
@@ -138,7 +139,7 @@ const Home = () => {
                             ):(
                                 <CardContent>
                                     <Typography variant="h5" color="text.dark" sx={{ fontWeight: 'bold', display: 'flex', alignItems: 'start', justifyContent: 'start' }}>
-                                        Total User: {user.length}
+                                        Total User: {user?.length}
                                     </Typography>
                                 </CardContent>
                             )
@@ -172,7 +173,7 @@ const Home = () => {
                                 ):(
                                     <CardContent>
                                         <Typography variant="h5" color="text.dark" sx={{fontWeight: 'bold', display: 'flex', alignItems: 'start', justifyContent: 'start',}}>
-                                            Total Post: {posts.length}
+                                            Total Post: {posts?.length}
                                         </Typography>
                                     </CardContent>
                                 )
@@ -205,7 +206,7 @@ const Home = () => {
                                 ):(
                                     <CardContent>
                                         <Typography variant="h5" color="text.dark" sx={{fontWeight: 'bold', display: 'flex', alignItems: 'start', justifyContent: 'start',}}>
-                                            Total Comment: {comment.length}
+                                            Total Comment: {comment?.length}
                                         </Typography>
                                     </CardContent>
                                 )   
@@ -238,7 +239,7 @@ const Home = () => {
                                 ):(
                                     <CardContent>
                                 <Typography variant="h5" color="text.dark" sx={{fontWeight: 'bold', display: 'flex', alignItems: 'start', justifyContent: 'start',}}>
-                                        Total Comment: {todo.length}
+                                        Total Comment: {todo?.length}
                                     </Typography>
                                     </CardContent>
                                 )   
@@ -249,15 +250,15 @@ const Home = () => {
             </Grid>
             <Grid item sm={11}>
                 <Card height={450} MaxWidth={900}  overflow="auto"   sx={{  marginTop: '20px',  justifyContent: "center", alignItems: "center", }} elevation={3}>
-                    {
-                    <Chart
-                        options={optionsBar}
-                        series={seriesBar}
-                        type="bar"
-                        MaxWidth={620}
-                        height={410}
-                    />
-                    } 
+                {usersTodo.length > 0 && todoCounts.length > 0 && (
+                <Chart
+                    options={optionsBar}
+                    series={seriesBar}
+                    type="bar"
+                    maxWidth={620}
+                    height={410}
+                />
+                )}
                 </Card>
             </Grid>
           

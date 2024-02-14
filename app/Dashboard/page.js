@@ -66,7 +66,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
         ...openedMixin(theme),
         '& .MuiDrawer-paper': {
           ...openedMixin(theme),
-          backgroundColor: '#0f2338', // Set your desired background color when open
+          backgroundColor: '#14394D', // Set your desired background color when open
           color: '#fff', // Set your desired text color when open
         },
       }),
@@ -74,7 +74,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
         ...closedMixin(theme),
         '& .MuiDrawer-paper': {
           ...closedMixin(theme),
-          backgroundColor: '#0f2338', // Set your desired background color when closed
+          backgroundColor: '#14394D', // Set your desired background color when closed
           color: '#fff', // Set your desired text color when closed
         },
       }),

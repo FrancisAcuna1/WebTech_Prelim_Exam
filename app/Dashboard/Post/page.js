@@ -60,31 +60,39 @@ const Post = () => {
                                     {Loading ? (
                                         <Skeleton animation="wave" height={30} width="80%" />
                                     ):(
-                                        <ListItemIcon
-                                        sx={{
-                                          display: 'flex',
-                                          alignItems: 'center',
-                                          justifyContent: 'flex-start', // Align to the left
-                                          marginTop: '-6px',
-                                          }}
-                                    >
-                                        <AccountCircleOutlinedIcon fontSize="large" color="error" />
-                                        {user && (
-                                        <Typography
-                                            gutterBottom
-                                            variant="h5"
-                                            component="div"
-                                            sx={{ color: "black", marginLeft: 2, margin: "10px" }}
-                                        >
-                                            {user.name}
-                                        </Typography>
-                                        )}
-                                        <div style={{marginLeft: '30px'}}></div>
-                                        <IconButton aria-label="settings">
-                                            <MoreVertIcon />
-                                        </IconButton>
-                                        
-                                         </ListItemIcon>
+                                        <>
+                                            <ListItemIcon
+                                                sx={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'flex-start', // Align to the left
+                                                marginTop: '-6px',
+                                                }}
+                                            >
+                                                <AccountCircleOutlinedIcon fontSize="large" color="error" />
+                                                {user && (
+                                                <Typography
+                                                    gutterBottom
+                                                    variant="h5"
+                                                    component="div"
+                                                    sx={{ color: "black", marginLeft: 2, margin: "10px" }}
+                                                >
+                                                    {user.name}
+                                                </Typography>
+                                                )}
+                                                <div style={{marginLeft: '30px'}}></div>
+                                                <IconButton aria-label="settings">
+                                                    <MoreVertIcon />
+                                                </IconButton>
+                                                
+                                            </ListItemIcon>
+                                            {user && (
+                                                <Typography variant="body2" color="text.dark" sx={{fontWeight: 'light', fontSize: 15, display: 'flex', alignItems: 'start', justifyContent: 'start', marginTop: '5px' }}>
+                                                {user.email}
+                                                </Typography>
+                                            )}
+                                            
+                                        </>
                                     )
                                     }
                                 </CardContent>
@@ -95,7 +103,7 @@ const Post = () => {
                                     {Loading ? (
                                         <Skeleton animation="wave" height={30} width="80%" />
                                     ):(
-                                    <>
+                                    <>  
                                         <Typography variant="body2" color="text.dark" sx={{fontWeight: 'bold', fontSize: 19, display: 'flex', alignItems: 'start', justifyContent: 'start', marginTop: '5px' }}>
                                         {`Title: ${item.title}`}
                                         </Typography>
