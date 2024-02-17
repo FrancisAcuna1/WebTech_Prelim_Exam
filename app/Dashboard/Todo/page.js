@@ -14,10 +14,15 @@ const Todo = () => {
     const [todo, setTodo] = useState([]);
     const [user, setUser] = useState(null);
     const search = useSearchParams();
-    const userId = search.get('userId');
+    const userIdFromQuery = search.get('userId');
+    const [userId, setUserId] = useState(userIdFromQuery);
+    // const userId = search.get('userId');
     const router = useRouter();
 
     useEffect(() => {
+        if (!userIdFromQuery){
+            return;
+        }
         const fetchUserTodo = () => {
             fetch(`https://jsonplaceholder.typicode.com/users/${userId}/todos`)
                 .then(response => response.json())
@@ -37,7 +42,7 @@ const Todo = () => {
             
         }
         fetchUsers();
-    }, [userId])
+    }, [userIdFromQuery])
 
 
 

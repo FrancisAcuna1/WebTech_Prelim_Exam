@@ -5,19 +5,24 @@ import { Card, CardActionArea, CardContent, Grid, CardHeader, Typography, Button
 import { useSearchParams } from "next/navigation";
 import React from "react";
 import { useState, useEffect } from "react";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 
 const Comments = () => {
     const router = useRouter();
-    const [user, setUser] = useState([]);
-    const [comment, setComment] = useState([]);
     const search = useSearchParams();
-    const postId = search.get('postId');
+    const postIdFromQuery = search.get('postId');
+    const [postId, setPostId] = useState(postIdFromQuery);
+    const [comment, setComment] = useState([]);
+    // const search = useSearchParams();s
+    // const postId = search.get('postId');
 
 
 
     useEffect(() => {
+            if (!postIdFromQuery) {
+                return;
+            }
             const fetchCommnet = () => {
               fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
                 .then((response) => response.json())
@@ -26,18 +31,10 @@ const Comments = () => {
                 });
             };
       
-            const fetchUsers = () => {
-              fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-                .then((response) => response.json())
-                .then((json) => {
-                  setUser(json);
-                });
-            };
-      
             fetchCommnet();
-            fetchUsers();
 
-    }, []);
+
+    }, [postIdFromQuery]);
     return ( <>
         <Navbar/>
         <Button variant="contained" color="success" onClick={() => router.back()} sx={{marginTop:'100px', marginLeft: '40px'}}>Go Back</Button>
