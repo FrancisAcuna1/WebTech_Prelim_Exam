@@ -1,4 +1,4 @@
-"use client"
+
 import React, { useState, useEffect } from "react";
 import Navbar from "../navbar";
 import { Card, CardActionArea, CardContent, Grid, Typography, ListItemIcon, CardHeader, Skeleton } from "@mui/material";
@@ -17,52 +17,88 @@ const Home = () => {
     const [user, setUser] = useState([]);
     const [comment, setComment] = useState ([]);
     const [todo, setTodo] = useState([]);
+ 
+    // useEffect(() => {
+    //     const fetchTodo = () => {
+    //         setLoading(true);
+    //         fetch('https://jsonplaceholder.typicode.com/todos')
+    //         .then(response => response.json())
+    //         .then(json => {
+    //             setTodo(json);
+    //             setLoading(false);
+    //         });
+    //     }
 
-    useEffect(() => {
-        const fetchTodo = () => {
-            setLoading(true);
-            fetch('https://jsonplaceholder.typicode.com/todos')
-            .then(response => response.json())
-            .then(json => {
-                setTodo(json);
-                setLoading(false);
-            });
-        }
-
-        const fetchPosts = () => {
-            setLoading(true);
-            fetch('https://jsonplaceholder.typicode.com/posts')
-                .then(response => response.json())
-                .then(json => {
-                    setPosts(json);
-                    setLoading(false);
-                });
+    //     const fetchPosts = () => {
+    //         setLoading(true);
+    //         fetch('https://jsonplaceholder.typicode.com/posts')
+    //             .then(response => response.json())
+    //             .then(json => {
+    //                 setPosts(json);
+    //                 setLoading(false);
+    //             });
                 
+    //     };
+
+    //     const fetchUsers = () => {
+    //         setLoading(true);
+    //         fetch('https://jsonplaceholder.typicode.com/users')
+    //         .then(response => response.json())
+    //         .then(json => {
+    //             setUser(json);
+    //             setLoading(false);
+    //         });
+    //     }
+
+    //     const fetchComments = () => {
+    //         setLoading(true);
+    //         fetch('https://jsonplaceholder.typicode.com/comments')
+    //         .then(response => response.json())
+    //         .then(json => {
+    //             setComment(json);
+    //             setLoading(false);
+    //         });
+    //     }
+    //     fetchPosts();
+    //     fetchComments()
+    //     fetchUsers();
+    //     fetchTodo();
+    // }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const responseTodo = await fetch(
+              "https://jsonplaceholder.typicode.com/todos"
+            );
+            const jsonTodo = await responseTodo.json();
+            setTodo(jsonTodo);
+    
+            const responsePosts = await fetch(
+              "https://jsonplaceholder.typicode.com/posts"
+            );
+            const jsonPosts = await responsePosts.json();
+            setPosts(jsonPosts);
+    
+            const responseUsers = await fetch(
+              "https://jsonplaceholder.typicode.com/users"
+            );
+            const jsonUsers = await responseUsers.json();
+            setUser(jsonUsers);
+    
+            const responseComments = await fetch(
+              "https://jsonplaceholder.typicode.com/comments"
+            );
+            const jsonComments = await responseComments.json();
+            setComment(jsonComments);
+    
+            setLoading(false);
+          } catch (error) {
+            console.error("Error fetching data:", error);
+            setLoading(false);
+          }
         };
-
-        const fetchUsers = () => {
-            setLoading(true);
-            fetch('https://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
-            .then(json => {
-                setUser(json);
-                setLoading(false);
-            });
-        }
-
-        const fetchComments = () => {
-            setLoading(true);
-            fetch('https://jsonplaceholder.typicode.com/comments')
-            .then(response => response.json())
-            .then(json => {
-                setComment(json);
-                setLoading(false);
-            });
-        }
-        fetchPosts();
-        fetchComments()
-        fetchUsers();
-        fetchTodo();
+    
+        fetchData();
     }, []);
 
   

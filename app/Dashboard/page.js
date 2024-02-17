@@ -20,6 +20,7 @@ import Home from './Home/page';
 import Post from './Post/page';
 import User from './Users/page';
 
+
 const drawerWidth = 220;
 
 const openedMixin = (theme) => ({
@@ -209,7 +210,7 @@ export default function Dashboard() {
             <TabContext value={value.toString()}>
                 <TabPanel value="0">
                     <h1 style={{marginTop: -30,}} >My Dashboard</h1>
-                    <Home />
+                    <Home/>
                 </TabPanel>
                 <TabPanel value="1">
                     <h1 style={{marginTop: -25}}>Posts</h1>
