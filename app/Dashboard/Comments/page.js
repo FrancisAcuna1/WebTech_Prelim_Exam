@@ -1,47 +1,46 @@
 "use client"
 
 import Navbar from "../navbar";
-import { Card, CardActionArea, CardContent, Grid, Modal, Box, CardHeader, Typography, Avatar, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useTheme, useMediaQuery, styled, IconButton, ListItemIcon, Skeleton } from "@mui/material";
-import { red } from '@mui/material/colors';
+import { Card, CardActionArea, CardContent, Grid, CardHeader, Typography, Button, ListItemIcon} from "@mui/material";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 import { useState, useEffect } from "react";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useRouter } from 'next/navigation';
 
 
 const Comments = () => {
+    const router = useRouter();
     const [user, setUser] = useState([]);
     const [comment, setComment] = useState([]);
     const search = useSearchParams();
     const postId = search.get('postId');
-    const [loading, setLoading] = useState(false);
+
+
 
     useEffect(() => {
-        const fetchCommnet = () => {
-            setLoading(true);
-            fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
-                .then(response => response.json())
-                .then(json => {
-                    setLoading(false);
-                    setComment(json);
+            const fetchCommnet = () => {
+              fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+                .then((response) => response.json())
+                .then((json) => {
+                  setComment(json);
                 });
-        };
-        fetchCommnet();
+            };
+      
+            const fetchUsers = () => {
+              fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+                .then((response) => response.json())
+                .then((json) => {
+                  setUser(json);
+                });
+            };
+      
+            fetchCommnet();
+            fetchUsers();
 
-        const fetchUsers = () => {
-            setLoading(true);
-            fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-                .then(response => response.json())
-                .then(json => {
-                    setLoading(false);
-                    setUser(json);
-                });
-        }
-        fetchUsers();
-    }, [postId]);
+    }, []);
     return ( <>
         <Navbar/>
-        <Button variant="contained" color="success" href="/Dashboard" sx={{marginTop:'100px', marginLeft: '40px'}}>Back</Button>
+        <Button variant="contained" color="success" onClick={() => router.back()} sx={{marginTop:'100px', marginLeft: '40px'}}>Go Back</Button>
         <Typography variant="h4" sx={{fontWeight:'bold', marginTop:'30px', marginLeft:'40px'}}>Comment Section</Typography>
         <Grid container spacing={4} marginTop={"8px"}>
                 {comment.map((item, index) => {
