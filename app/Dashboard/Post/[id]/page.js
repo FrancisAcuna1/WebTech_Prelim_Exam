@@ -1,6 +1,6 @@
 "use client"
 
-import Navbar from "../navbar";
+import Navbar from "../../navbar";
 import { Card, CardActionArea, CardContent, Grid, CardHeader, Typography, Button, ListItemIcon} from "@mui/material";
 import { useSearchParams } from "next/navigation";
 import React from "react";
@@ -8,21 +8,15 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 
-const Comments = () => {
+const Comments = ({params}) => {
     const router = useRouter();
-    const search = useSearchParams();
-    const postIdFromQuery = search.get('postId');
-    const [postId, setPostId] = useState(postIdFromQuery);
+    const postId = params.id;
+    const [user, setUser] = useState([]);
     const [comment, setComment] = useState([]);
-    // const search = useSearchParams();s
-    // const postId = search.get('postId');
-
+ 
 
 
     useEffect(() => {
-            if (!postIdFromQuery) {
-                return;
-            }
             const fetchCommnet = () => {
               fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
                 .then((response) => response.json())
@@ -32,9 +26,7 @@ const Comments = () => {
             };
       
             fetchCommnet();
-
-
-    }, [postIdFromQuery]);
+    }, []);
     return ( <>
         <Navbar/>
         <Button variant="contained" color="success" onClick={() => router.back()} sx={{marginTop:'100px', marginLeft: '40px'}}>Go Back</Button>

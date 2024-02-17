@@ -1,6 +1,6 @@
 "use client"
 
-import Navbar from "../navbar";
+import Navbar from "../../navbar";
 import { Card, CardActionArea, CardContent, Grid, Typography, Button,} from "@mui/material";
 import { useSearchParams } from "next/navigation";
 import React from "react";
@@ -10,19 +10,13 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 
 
-const Todo = () => {
+const Todo = ({params}) => {
     const [todo, setTodo] = useState([]);
     const [user, setUser] = useState(null);
-    const search = useSearchParams();
-    const userIdFromQuery = search.get('userId');
-    const [userId, setUserId] = useState(userIdFromQuery);
-    // const userId = search.get('userId');
+    const userId = params.id;
     const router = useRouter();
 
     useEffect(() => {
-        if (!userIdFromQuery){
-            return;
-        }
         const fetchUserTodo = () => {
             fetch(`https://jsonplaceholder.typicode.com/users/${userId}/todos`)
                 .then(response => response.json())
@@ -42,7 +36,7 @@ const Todo = () => {
             
         }
         fetchUsers();
-    }, [userIdFromQuery])
+    }, [])
 
 
 

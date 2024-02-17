@@ -111,9 +111,7 @@ const Post = () => {
                                         <Typography variant="body1" color="text.dark" sx={{ fontSize: 16, display: 'flex', alignItems: 'start', justifyContent: 'start', marginTop: '5px' }}>
                                             {item.body}
                                         </Typography>
-                                        {/* <Button variant="outlined" href={`.Dashboard/Comments?postId=${item.id}`}sx={{marginTop:'20px'}}>View Comment</Button> */}
-                                        <Button variant="outlined" onClick={() => router.push(`./Dashboard/Comments?postId=${item.id}`)} sx={{ marginTop: '20px' }}>View Comment</Button>
-                                       
+                                        <Button variant="outlined" onClick={() => router.push(`Dashboard/Post/${item.id}`)} sx={{ marginTop: '20px' }}>View Comment</Button>
 
                                     </>
                                     )

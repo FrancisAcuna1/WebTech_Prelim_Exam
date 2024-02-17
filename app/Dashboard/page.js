@@ -19,7 +19,6 @@ import TabContext from '@mui/lab/TabContext';
 import Home from './Home/page';
 import Post from './Post/page';
 import User from './Users/page';
-import Comment from './Comments/page';
 
 const drawerWidth = 220;
 
