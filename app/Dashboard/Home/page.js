@@ -17,7 +17,6 @@ const Home = () => {
     const [user, setUser] = useState([]);
     const [comment, setComment] = useState ([]);
     const [todo, setTodo] = useState([]);
- 
     // useEffect(() => {
     //     const fetchTodo = () => {
     //         setLoading(true);
