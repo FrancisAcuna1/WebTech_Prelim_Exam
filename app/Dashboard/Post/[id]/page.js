@@ -1,8 +1,10 @@
+'use client'
 import Navbar from "../../navbar";
 import { Card, CardActionArea, CardContent, Grid, CardHeader, Typography, Button, ListItemIcon} from "@mui/material";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+
 
 
 const Comments = ({params}) => {

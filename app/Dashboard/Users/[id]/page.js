@@ -1,3 +1,4 @@
+'use client'
 import Navbar from "../../navbar";
 import { Card, CardActionArea, CardContent, Grid, Typography, Button,} from "@mui/material";
 import React from "react";
