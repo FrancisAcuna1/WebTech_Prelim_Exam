@@ -49,33 +49,6 @@ const Post = () => {
     }, []);
 
 
-    // useEffect(() => {
-    //     const fetchPosts = () => {
-    //         setLoading(true)
-    //         fetch('https://jsonplaceholder.typicode.com/posts')
-    //             .then(response => response.json())
-    //             .then(json => {
-    //                 setPosts(json);
-    //                 setLoading(false)
-    //             });
-    //     };
-    //     fetchPosts();
-
-    //     const fetchUsers = () => {
-    //         setLoading(true)
-    //         fetch('https://jsonplaceholder.typicode.com/users')
-    //             .then(response => response.json())
-    //             .then(json => {
-    //                 setUsers(json);
-    //                 setLoading(false)
-    //             });
-    //     }
-    //     fetchUsers();
-    // }, []);
-
- 
-
-
     return (
         <>
             <Navbar />

@@ -31,17 +31,6 @@ const Comments = ({params}) => {
         fetchData();
     }, [postId]);
 
-    // useEffect(() => {
-    //         const fetchCommnet = () => {
-    //           fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
-    //             .then((response) => response.json())
-    //             .then((json) => {
-    //               setComment(json);
-    //             });
-    //         };
-      
-    //         fetchCommnet();
-    // }, []);
     return ( <>
         <Navbar/>
         <Button variant="contained" color="success" onClick={() => router.back()} sx={{marginTop:'100px', marginLeft: '40px'}}>Go Back</Button>

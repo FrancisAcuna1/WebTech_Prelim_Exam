@@ -43,28 +43,6 @@ const Todo = ({params}) => {
 
 
 
-    // useEffect(() => {
-    //     const fetchUserTodo = () => {
-    //         fetch(`https://jsonplaceholder.typicode.com/users/${userId}/todos`)
-    //             .then(response => response.json())
-    //             .then(json => {
-    //                 setTodo(json);
-    //             });
-    //     }
-    //     fetchUserTodo()
-
-    //     const fetchUsers = () => {
-           
-    //         fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
-    //             .then(response => response.json())
-    //             .then(json => {
-    //                 setUser(json);
-    //             });
-            
-    //     }
-    //     fetchUsers();
-    // }, [])
-
 
 
     return ( <>

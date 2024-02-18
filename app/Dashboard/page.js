@@ -16,9 +16,6 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import TabContext from '@mui/lab/TabContext';
 
-// import Home from './Home/page';
-// import Post from './Post/page';
-// import User from './Users/page';
 import dynamic from 'next/dynamic';
 
 const drawerWidth = 220;
@@ -81,7 +78,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
   );
   
-  // ... (your existing code)
   
 
   const DynamicHeader = dynamic(() => import('./Home/page'), {

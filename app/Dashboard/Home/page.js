@@ -6,25 +6,16 @@ import QuestionAnswerOutlinedIcon from '@mui/icons-material/QuestionAnswerOutlin
 import PhotoCameraFrontOutlinedIcon from '@mui/icons-material/PhotoCameraFrontOutlined';
 import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
 import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
-// import Chart from 'react-apexcharts';
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    Tooltip,
-    PointElement,
-    LineElement,
-  } from "chart.js";
-
-  import { Line } from "react-chartjs-2";
+import {Chart as ChartJS,CategoryScale, LinearScale, Tooltip, PointElement, LineElement,} from "chart.js";
+import { Line } from "react-chartjs-2";
   
-  ChartJS.register(
+ChartJS.register(
     CategoryScale,
     LinearScale,
     PointElement,
     LineElement,
     Tooltip
-  );
+);
   
 
 
@@ -35,52 +26,7 @@ const Home = () => {
     const [user, setUser] = useState([]);
     const [comment, setComment] = useState ([]);
     const [todo, setTodo] = useState([]);
-    // useEffect(() => {
-    //     const fetchTodo = () => {
-    //         setLoading(true);
-    //         fetch('https://jsonplaceholder.typicode.com/todos')
-    //         .then(response => response.json())
-    //         .then(json => {
-    //             setTodo(json);
-    //             setLoading(false);
-    //         });
-    //     }
-
-    //     const fetchPosts = () => {
-    //         setLoading(true);
-    //         fetch('https://jsonplaceholder.typicode.com/posts')
-    //             .then(response => response.json())
-    //             .then(json => {
-    //                 setPosts(json);
-    //                 setLoading(false);
-    //             });
-                
-    //     };
-
-    //     const fetchUsers = () => {
-    //         setLoading(true);
-    //         fetch('https://jsonplaceholder.typicode.com/users')
-    //         .then(response => response.json())
-    //         .then(json => {
-    //             setUser(json);
-    //             setLoading(false);
-    //         });
-    //     }
-
-    //     const fetchComments = () => {
-    //         setLoading(true);
-    //         fetch('https://jsonplaceholder.typicode.com/comments')
-    //         .then(response => response.json())
-    //         .then(json => {
-    //             setComment(json);
-    //             setLoading(false);
-    //         });
-    //     }
-    //     fetchPosts();
-    //     fetchComments()
-    //     fetchUsers();
-    //     fetchTodo();
-    // }, []);
+    
     useEffect(() => {
         const windowHeight = typeof window !== "undefined" ? window.innerHeight : 0;
         console.log(windowHeight);
@@ -131,37 +77,6 @@ const Home = () => {
       }
     })
 
-    
-
-    // const todoCountPerUser = {};
-    // todo.forEach((task) => {
-
-    //   if (todoCountPerUser[task.userId]) {
-    //     todoCountPerUser[task.userId]++;
-    //   } else {
-    //     todoCountPerUser[task.userId] = 1;
-    //   }
-    // });
-
-    // const usersTodo = user.map(users => users.name)
-    // const todoCounts = Object.values(todoCountPerUser);
-
-    // const optionsBar = {
-    //   chart: {
-    //     id: "bar-chart",
-    //   },
-    //   xaxis: {
-    //     categories: usersTodo,
-    //   },
-    // };
-  
-    // // Bar chart series
-    // const seriesBar = [
-    //   {
-    //     name: "Todo Tasks",
-    //     data: todoCounts,
-    //   },
-    // ];
 
     return ( <>
         <Navbar/>
