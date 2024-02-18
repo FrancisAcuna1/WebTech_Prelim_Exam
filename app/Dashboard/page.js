@@ -96,7 +96,8 @@ export default function Dashboard() {
     };
     console.log(value)
 
-
+    const windowHeight = typeof window !== "undefined" ? window.innerHeight : 0;
+    console.log(windowHeight);
 
 
 
@@ -115,7 +116,7 @@ export default function Dashboard() {
             </DrawerHeader>
 
             <Divider />
-            <TabContext value={value.toString()}>
+            <TabContext>
                 <TabList
                     orientation="vertical"
                     value={value}
@@ -151,6 +152,7 @@ export default function Dashboard() {
                         }
                     />
                     <Tab
+                        
                         label={
                             <ListItem                
                                 sx={{

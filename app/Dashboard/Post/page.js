@@ -5,7 +5,7 @@ import Navbar from "../navbar";
 import { Card, CardActionArea, CardContent, Grid, Skeleton, Typography,  Button, IconButton, ListItemIcon } from "@mui/material";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import { TurnLeft } from "@mui/icons-material";
+
 
 
 const Post = () => {
@@ -21,6 +21,8 @@ const Post = () => {
 
 
     useEffect(() => {
+        const windowHeight = typeof window !== "undefined" ? window.innerHeight : 0;
+        console.log(windowHeight);
         const fetchData = async () => {
           try {
             setLoading(true);

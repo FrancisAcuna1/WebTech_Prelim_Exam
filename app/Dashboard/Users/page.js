@@ -34,6 +34,8 @@ const User = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        const windowHeight = typeof window !== "undefined" ? window.innerHeight : 0;
+        console.log(windowHeight);
         const fetchData = async () => {
           try {
             setLoading(true);

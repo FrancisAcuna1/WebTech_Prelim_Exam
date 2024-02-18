@@ -13,6 +13,8 @@ const Comments = ({params}) => {
     const [comment, setComment] = useState([]);
  
     useEffect(() => {
+        const windowHeight = typeof window !== "undefined" ? window.innerHeight : 0;
+        console.log(windowHeight);
         const fetchData = async () => {
           try {
             const responseComments = await fetch(
